@@ -20,39 +20,39 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if(Ammo.Ammovalue > 0)
+            if (Ammo.Ammovalue > 0)
             {
-                
+
                 var bullet = Instantiate(bulletprefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bulletSpawnpoint.forward * bulletspeed;
                 Ammo.Ammovalue -= 1;
                 Debug.Log(Timer);
                 animator.GetComponent<Animator>().SetBool("Shoot", true);
             }
-           
+
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
         {
             animator.GetComponent<Animator>().SetBool("Shoot", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            Timer++;
-            if (Ammo.Ammovalue < 6 )
+            if (Ammo.Ammovalue < 6)
             {
-                Ammo.Ammovalue++;
+                do
+                {
+
+
+                    Ammo.Ammovalue++;
+                } while (Ammo.Ammovalue < 6);
             }
-
         }
-
-        if (Timer >= 6) 
-        {
-                Timer = 0;
-        }
-
     }
-    
+
+
+
+
 }
