@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	
 
-	public float walkSpeed = 10.0f;
+	public float walkSpeed = 6.0f;
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-	// Use this for initialization
+	
 	void Start()
 	{
 		
@@ -29,17 +29,34 @@ public class PlayerMovement : MonoBehaviour
 		
 	}
 
-	// Update is called once per frame
+
 	void Update()
 	{
+
+
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+			walkSpeed = 10.0f;
+		}
+
+		else
+        {
+			walkSpeed = 6.0f;
+		}
+
+
 
 		// movement
 		Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
 		Vector3 targetMoveAmount = moveDir * walkSpeed;
 		moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
 
-		// jump
-		if (Input.GetButtonDown("Jump"))
+		
+
+
+
+			// jump
+			if (Input.GetButtonDown("Jump"))
 		{
 			if (grounded)
 			{
