@@ -6,50 +6,46 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    public Transform bulletSpawnpoint;
-    public GameObject bulletprefab;
-    public float bulletspeed;
-    public int Timer;
+    public float damage = 10f;
+    public float range = 20f;
 
-    private Animator animator;
+    public Camera fpscam;
 
-    void Start()
+    public ParticleSystem Muzzle;
+    public ParticleSystem Smoke;
+
+    private void Start()
     {
-        animator = GetComponent<Animator>();
+        Muzzle.Stop();
+        Smoke.Stop();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (Ammo.Ammovalue > 0)
-            {
-
-                var bullet = Instantiate(bulletprefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-                bullet.GetComponent<Rigidbody>().velocity = bulletSpawnpoint.forward * bulletspeed;
-                Ammo.Ammovalue -= 1;
-                Debug.Log(Timer);
-                animator.GetComponent<Animator>().SetBool("Shoot", true);
-            }
-
+            Shoot();
         }
-        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
-        {
-            animator.GetComponent<Animator>().SetBool("Shoot", false);
-        }
+    }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (Ammo.Ammovalue < 6)
+    void Shoot()
+    {
+
+        Muzzle.Play();
+        Smoke.Play();
+
+        RaycastHit hit;
+        if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range)) 
+        { 
+            Debug.Log(hit.transform.name);
+
+            Target target =  hit.transform.GetComponent<Target>();
+            if (target != null) 
             {
-                do
-                {
-
-
-                    Ammo.Ammovalue++;
-                } while (Ammo.Ammovalue < 6);
+                target.Takedamage(damage);
             }
         }
+        
     }
 
 
