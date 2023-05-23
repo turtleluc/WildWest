@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 133737330}
   - component: {fileID: 133737329}
   - component: {fileID: 133737328}
+  - component: {fileID: 133737332}
   - component: {fileID: 133737331}
   m_Layer: 0
   m_Name: Cube (1)
@@ -381,6 +382,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &133737332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133737326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1cb87f9e2792a47a6aab18ecec9dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 20
+  maxAmmo: 6
+  Splyfus: {fileID: 133737331}
+  fpscam: {fileID: 1977537578}
+  Muzzle: {fileID: 1477933888}
+  Smoke: {fileID: 220228664}
 --- !u!1 &140200271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: ad3c86fb9385df74289b9f386f617437, type: 3}
@@ -5573,16 +5593,39 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275042506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b1cb87f9e2792a47a6aab18ecec9dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
   range: 30
+  maxAmmo: 6
+  Splyfus: {fileID: 275042509}
   fpscam: {fileID: 1977537578}
   Muzzle: {fileID: 1477933888}
   Smoke: {fileID: 220228664}
+--- !u!95 &275042509
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275042506}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13a988684dc8247499ffba7a70b92193, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &284440337
 GameObject:
   m_ObjectHideFlags: 0

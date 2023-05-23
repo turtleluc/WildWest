@@ -5,7 +5,6 @@ using TMPro;
 
 public class Ammo : MonoBehaviour
 {
-    public static int Ammovalue = 6;
     TMP_Text ammo;
 
     void Start()
@@ -15,6 +14,6 @@ public class Ammo : MonoBehaviour
 
     void Update()
     {
-        ammo.text = "Ammo = " + Ammovalue + "/6";
+        ammo.text = "Ammo = " + Gun_System.currentAmmo + "/6";
     }
 }
