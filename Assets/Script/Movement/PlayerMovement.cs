@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	
 
-	public float walkSpeed = 6.0f;
+	public float walkSpeed = 5.0f;
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 
@@ -34,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 
 
-		if (Input.GetKeyDown(KeyCode.LeftShift))
+		if (Input.GetKey(KeyCode.LeftShift))
         {
-			walkSpeed = 10.0f;
+			walkSpeed = 7.0f;
 		}
 
 		else
         {
-			walkSpeed = 6.0f;
+			walkSpeed = 5.0f;
 		}
 
 
