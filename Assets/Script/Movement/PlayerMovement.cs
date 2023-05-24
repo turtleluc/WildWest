@@ -11,9 +11,10 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 
-	
+    public Animator Splyfus;
+    public Animator Camfus;
 
-	Rigidbody rigidbodyR;
+    Rigidbody rigidbodyR;
 
 	float jumpForce = 250.0f;
 	bool grounded;
@@ -32,56 +33,76 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
+        Move();
+        MoveAni();
 
-
-		if (Input.GetKey(KeyCode.LeftShift))
-        {
-			walkSpeed = 7.0f;
-		}
-
-		else
-        {
-			walkSpeed = 5.0f;
-		}
-
-
-
-		// movement
-		Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-		Vector3 targetMoveAmount = moveDir * walkSpeed;
-		moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-
-		
-
-
-
-			// jump
-			if (Input.GetButtonDown("Jump"))
-		{
-			if (grounded)
-			{
-				rigidbodyR.AddForce(transform.up * jumpForce);
-			}
-		}
-
-		Ray ray = new Ray(transform.position, -transform.up);
-		RaycastHit hit;
-
-		if (Physics.Raycast(ray, out hit, 1 + .1f, groundedMask))
-		{
-			grounded = true;
-		}
-		else
-		{
-			grounded = false;
-		}
-
-	}
+    }
 
 	void FixedUpdate()
 	{
 		rigidbodyR.MovePosition(rigidbodyR.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 	}
 
-	
+	void Move()
+	{
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            walkSpeed = 7.0f;
+        }
+
+        else
+        {
+            walkSpeed = 5.0f;
+        }
+
+
+
+        // movement
+        Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        Vector3 targetMoveAmount = moveDir * walkSpeed;
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+
+
+
+
+
+        // jump
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (grounded)
+            {
+                rigidbodyR.AddForce(transform.up * jumpForce);
+            }
+        }
+
+        Ray ray = new Ray(transform.position, -transform.up);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1 + .1f, groundedMask))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+    }
+
+    void MoveAni()
+    {
+        if ((Input.GetAxisRaw("Horizontal") != 0) || (Input.GetAxisRaw("Vertical") != 0))
+        {
+            
+            Camfus.Play("ViewBobbing");
+
+            /*if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Walking") || !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") || !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reloading_6"))
+            {
+                
+
+
+            }*/
+        }
+
+    }
+
 }
