@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 smoothMoveVelocity;
 
     public Animator Splyfus;
-    public Animator Camfus;
+    
 
     Rigidbody rigidbodyR;
 
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
         Move();
-        MoveAni();
+        
 
     }
 
@@ -88,21 +88,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void MoveAni()
-    {
-        if ((Input.GetAxisRaw("Horizontal") != 0) || (Input.GetAxisRaw("Vertical") != 0))
-        {
-            
-            Camfus.Play("ViewBobbing");
-
-            /*if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Walking") || !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") || !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reloading_6"))
-            {
-                
-
-
-            }*/
-        }
-
-    }
+ 
 
 }

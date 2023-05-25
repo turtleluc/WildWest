@@ -11,6 +11,8 @@ public class Mouselook : MonoBehaviour
 
     float xRotation = 0f;
 
+    public Animator Camfus;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +23,39 @@ public class Mouselook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X")* Camerasensativity*Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * Camerasensativity*Time.deltaTime;
+        Mouse();
+        MoveAni();
+    }
+    void MoveAni()
+    {
+        if ((Input.GetAxisRaw("Horizontal") != 0) || (Input.GetAxisRaw("Vertical") != 0))
+        {
+            if (!this.Camfus.GetCurrentAnimatorStateInfo(0).IsName("ViewBobbing"))
+            {
+                    Camfus.Play("ViewBobbing");
+            }
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+           
 
-        transform.localRotation =Quaternion.Euler(xRotation, 0f, 0f);
-        PlayerBody.Rotate(Vector3.up * mouseX);
+            /*if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Walking") || !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") || !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reloading_6"))
+            {
+                
+
+
+            }*/
+        }
 
     }
+    void Mouse()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * Camerasensativity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * Camerasensativity * Time.deltaTime;
+
+            xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+                transform.localRotation =Quaternion.Euler(xRotation, 0f, 0f);
+                PlayerBody.Rotate(Vector3.up* mouseX);
+    }
+    
 }

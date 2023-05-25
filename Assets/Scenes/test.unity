@@ -6699,7 +6699,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 6
   Splyfus: {fileID: 133737331}
-  Camfus: {fileID: 1977537582}
   groundedMask:
     serializedVersion: 2
     m_Bits: 64
@@ -12813,6 +12812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camerasensativity: 400
   PlayerBody: {fileID: 1300794031}
+  Camfus: {fileID: 1977537582}
 --- !u!114 &1977537581
 MonoBehaviour:
   m_ObjectHideFlags: 0
