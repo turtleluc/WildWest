@@ -48,6 +48,7 @@ public class Gun_System : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+            ShootAni();
         }
 
         Debug.Log(currentAmmo);
@@ -57,15 +58,9 @@ public class Gun_System : MonoBehaviour
     void Shoot()
     {
 
-        /*Splyfus.Play("POW");
-
-        Muzzle.Play();
-        Smoke.Play();*/
-
         RaycastHit hit;
         if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
-            Splyfus.Play("POW");
 
             Muzzle.Play();
             Smoke.Play();
@@ -83,6 +78,15 @@ public class Gun_System : MonoBehaviour
 
                 }
             }
+        }
+    }
+
+    void ShootAni()
+    {
+        if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
+        {
+
+            Splyfus.Play("POW");
         }
     }
 
