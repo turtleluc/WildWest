@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 133737329}
   - component: {fileID: 133737328}
   - component: {fileID: 133737332}
+  - component: {fileID: 133737333}
   - component: {fileID: 133737331}
   m_Layer: 0
   m_Name: Cube (1)
@@ -290,8 +291,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133737326}
   m_LocalRotation: {x: -0.004882803, y: -0, z: -0, w: 0.99998814}
-  m_LocalPosition: {x: 0.5950108, y: -0.474, z: 0.4929996}
-  m_LocalScale: {x: 0.32070795, y: 0.26273677, z: 1.0678}
+  m_LocalPosition: {x: 0.5950108, y: -0.4740001, z: 0.4929996}
+  m_LocalScale: {x: 0.32070795, y: 0.26273683, z: 1.0678}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1587826755}
@@ -401,6 +402,19 @@ MonoBehaviour:
   fpscam: {fileID: 1977537578}
   Muzzle: {fileID: 1477933888}
   Smoke: {fileID: 220228664}
+--- !u!114 &133737333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133737326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6186e1428d6af140960a0d0f8f811ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Aimfus: {fileID: 133737331}
 --- !u!1 &140200271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: ad3c86fb9385df74289b9f386f617437, type: 3}
