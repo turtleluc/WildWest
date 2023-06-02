@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -20,23 +21,56 @@ public class PlayerMovement : MonoBehaviour
 	bool grounded;
 	public LayerMask groundedMask;
 
+    public int maxhealth = 100;
+    public int currenthealth;
 
+    public Health healthbar;
+
+    public GameObject Panel;
 
 	
 	void Start()
 	{
 		
 		rigidbodyR = GetComponent<Rigidbody>();
-		
-	}
+        currenthealth = maxhealth;
+        healthbar.SetMaxHealth(maxhealth);
+        Panel.SetActive(false);
+        Time.timeScale = 1f;
+
+    }
 
 
 	void Update()
 	{
         Move();
-        
+        Dead();
+
+        if(Input.GetKeyDown(KeyCode.H)) 
+        {
+            TakeDamage(20);
+        }
 
     }
+
+    void Dead()
+    {
+        if(currenthealth <= 0)
+        {
+            Panel.SetActive(true);
+            Time.timeScale= 0f;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currenthealth -= damage;
+
+        healthbar.SetHealth(currenthealth);
+    }
+
+
 
 	void FixedUpdate()
 	{
