@@ -1,14 +1,21 @@
+using Aitest;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Target : MonoBehaviour
 {
     public int MoneyPlus = 10;
+
     public float health = 50f;
-    private float m_Thrust = 300f;
+
+    private float m_Thrust = 375f;
+
     Rigidbody rb;
+
+    public NavMeshAgent Navmesh;
 
     public ConfigurableJoint L;
     public ConfigurableJoint R;
@@ -25,7 +32,8 @@ public class Target : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        Navmesh =GetComponent<NavMeshAgent>();
+        Navmesh.enabled = true;
 
         rb.freezeRotation = true;
 
@@ -40,14 +48,20 @@ public class Target : MonoBehaviour
 
     void Die()
     {
-        rb.freezeRotation = false;
-        rb.AddForce(transform.forward * m_Thrust);
-        L.angularXMotion = ConfigurableJointMotion.Free;
-        L.angularYMotion = ConfigurableJointMotion.Free;
-        L.angularZMotion = ConfigurableJointMotion.Free;
+        GetComponent<AI>().enabled = false;
+        Navmesh.enabled= false;
 
-        R.angularXMotion = ConfigurableJointMotion.Free;
-        R.angularYMotion = ConfigurableJointMotion.Free;
-        R.angularZMotion = ConfigurableJointMotion.Free;
+            rb.freezeRotation = false;
+            rb.AddForce(transform.forward * -m_Thrust);
+            rb.AddForce(transform.up * 300f);
+            L.angularXMotion = ConfigurableJointMotion.Free;
+            L.angularYMotion = ConfigurableJointMotion.Free;
+            L.angularZMotion = ConfigurableJointMotion.Free;
+
+            R.angularXMotion = ConfigurableJointMotion.Free;
+            R.angularYMotion = ConfigurableJointMotion.Free;
+            R.angularZMotion = ConfigurableJointMotion.Free;
+
+        
     }
 }
