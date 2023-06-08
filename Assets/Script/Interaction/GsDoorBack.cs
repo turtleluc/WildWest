@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GS_Door : MonoBehaviour, IInteracteble
+public class GsDoorBack : MonoBehaviour, IInteracteble
 {
 
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
+    public GameObject Player;
 
     public void Interact(Interactor interactor)
     {
         Debug.Log("Door");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Player.transform.position = new Vector3(14f, 1.25f, -4.2f);
+        Player.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
 
    
