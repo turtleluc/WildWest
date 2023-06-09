@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 
+    private int damage = 10;
+
     public Animator Splyfus;
     
 
@@ -45,11 +47,8 @@ public class PlayerMovement : MonoBehaviour
 	{
         Move();
         Dead();
+        
 
-        if(Input.GetKeyDown(KeyCode.H)) 
-        {
-            TakeDamage(20);
-        }
 
     }
 
@@ -60,6 +59,16 @@ public class PlayerMovement : MonoBehaviour
             Panel.SetActive(true);
             Time.timeScale= 0f;
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Projectile")
+        {
+            currenthealth -= damage;
+            healthbar.SetHealth(currenthealth);
+            Debug.Log("You got hit");
         }
     }
 

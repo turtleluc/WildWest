@@ -3,68 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Aitest
-{
     public class AI : MonoBehaviour
     {
+    GameObject Player;
 
-        public Transform target;
+    NavMeshAgent agent;
 
-        private AIRefrences enemyrefrences;
+    [SerializeField] LayerMask groundlayer, playerlayer;
 
-        private float shootdistances;
+    Vector3 destpoint;
+    bool walkpointSet;
+    [SerializeField] float Walkrange;
 
-        private float pathUpdateDeadline;
 
-        private void Awake()
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        Player = GameObject.Find("Player");
+    }
+
+    private void Update()
+    {
+        Patrol();
+    }
+
+    void Patrol()
+    {
+        if (!walkpointSet)
         {
-            enemyrefrences = GetComponent<AIRefrences>();    
+            Searchfordest();
         }
-
-        // Start is called before the first frame update
-        void Start()
+        if (walkpointSet)
         {
-            shootdistances = enemyrefrences.navMeshagent.stoppingDistance;
-
+            agent.SetDestination(destpoint);
         }
+        if (Vector3.Distance(transform.position, destpoint) < 10) walkpointSet = false;
+    }
 
-        // Update is called once per frame
-        void Update()
+    void Searchfordest()
+    {
+        float z = Random.Range(-Walkrange, Walkrange);
+        float x = Random.Range(-Walkrange, Walkrange);
+
+        destpoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
+
+        if (Physics.Raycast(destpoint, Vector3.down, groundlayer))
         {
-            if(target!= null) 
-            {
-                bool inRange = Vector3.Distance(transform.position, target.position) <= shootdistances;
-
-                if(inRange) 
-                {
-                    Lookattarget();
-                }
-                else
-                {
-                    UpdatePath();
-                }
-            }
-        }
-
-        private void Lookattarget()
-        {
-            Vector3 lookPos = target.position- transform.position;
-            lookPos.y = 0;
-            Quaternion rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation =Quaternion.Slerp(transform.rotation,rotation,0.2f);
-
-        }
-        private void UpdatePath()
-        {
-            /*NavMeshAgent.SetDestination(target.position);*/   
-
-            if(Time.time >= pathUpdateDeadline) 
-            {
-                Debug.Log("Updating Path");
-                pathUpdateDeadline= Time.time+ enemyrefrences.pathupdatedelay;
-                enemyrefrences.navMeshagent.SetDestination(target.position);
-            }
+            walkpointSet= true;
         }
     }
+
 }
+    
 

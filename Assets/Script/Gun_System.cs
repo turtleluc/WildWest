@@ -51,7 +51,7 @@ public class Gun_System : MonoBehaviour
             ShootAni();
         }
 
-        Debug.Log(currentAmmo);
+      
 
     }
 
