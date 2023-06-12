@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ public class Target : MonoBehaviour
     public float health = 50f;
 
     private float m_Thrust = 375f;
+
+    public GameObject DetectionZone;
 
     Rigidbody rb;
 
@@ -33,6 +36,7 @@ public class Target : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Navmesh =GetComponent<NavMeshAgent>();
+
         Navmesh.enabled = true;
 
         rb.freezeRotation = true;
@@ -50,6 +54,7 @@ public class Target : MonoBehaviour
     {
         GetComponent<AI>().enabled = false;
         Navmesh.enabled= false;
+        DetectionZone.gameObject.SetActive(false);
 
             rb.freezeRotation = false;
             rb.AddForce(transform.forward * -m_Thrust);

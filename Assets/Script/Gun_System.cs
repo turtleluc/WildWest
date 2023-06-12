@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Gun_System : MonoBehaviour
 {
     public float damage = 10f;
@@ -19,12 +20,12 @@ public class Gun_System : MonoBehaviour
     public ParticleSystem Muzzle;
     public ParticleSystem Smoke;
 
-    private void Start()
+    void Start()
     {
         Muzzle.Stop();
         Smoke.Stop();
-
         Splyfus = GetComponent<Animator>();
+        
 
         currentAmmo = maxAmmo;
 
@@ -61,7 +62,7 @@ public class Gun_System : MonoBehaviour
         RaycastHit hit;
         if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
-
+            Ammo ammoUI = GetComponent<Ammo>();
             Muzzle.Play();
             Smoke.Play();
 
@@ -96,10 +97,6 @@ public class Gun_System : MonoBehaviour
         {
             Splyfus.Play("Reload_6");
                 currentAmmo = maxAmmo;
-            
         }
-
-
     }
-
 }

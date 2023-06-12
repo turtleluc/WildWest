@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+
 
 public class Ammo : MonoBehaviour
 {
-    TMP_Text ammo;
+    public Slider ammosliderUI;
 
-    void Start()
+    public void ammoslider()
     {
-        ammo = GetComponent<TMP_Text>();
+        ammosliderUI.value = 6;
     }
 
     void Update()
     {
-        ammo.text = "Ammo = " + Gun_System.currentAmmo + "/6";
+        
     }
 }
