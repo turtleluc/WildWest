@@ -47,9 +47,6 @@ public class PlayerMovement : MonoBehaviour
 	{
         Move();
         Dead();
-        
-
-
     }
 
     void Dead()
