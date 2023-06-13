@@ -16,6 +16,7 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
     public TMP_Text Misstion_Tit;
     public TMP_Text Misstion_Des;
 
+    int CurrentMission = 0;
 
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
@@ -43,36 +44,54 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
         }
 
     }
+    public void MissionActivate()
+    {
+        if (CurrentMission == 1)
+        {
+            Missions.Mission1 = true;
+        }
 
+        if (CurrentMission == 2)
+        {
+            Missions.Mission2 = true;
+            Missions.Need_current = 0;
+            Missions.Needs = 15;
+        }
+
+        Debug.Log("ButtonActiveate");
+        
+    }
     public void Mission1Sel()
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "General-Store Robbery";
         Misstion_Des.text = "Ohh no the general store is being robbed. go save the town folk and kill or cature all bandits.";
+        CurrentMission = 1;
     }
     public void Mission2Sel()
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "General-Store Robbery";
         Misstion_Des.text = "General-Store Robbery";
+        CurrentMission = 2;
     }
     public void Mission3Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "General-Store Robbery";
+        Misstion_Tit.text = "randome text";
+        Misstion_Des.text = "hadsb ldahdka;j d;ajdlakjs ajkdd jsdj aioj kash dh ka hiduhi ah";
     }
     public void Mission4Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "General-Store Robbery";
+        Misstion_Tit.text = "Gen dpoija djja lj; lbbery";
+        Misstion_Des.text = "Genkskajjd j jj adj jalskj k obbery";
     }
     public void Mission5Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "General-Store Robbery";
+        Misstion_Tit.text = "General-Store ljah ds lkk; lk ;lk a lkjfkjbery";
+        Misstion_Des.text = "General-Stord hab kl d; ;obbery";
     }
 }
 
