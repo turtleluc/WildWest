@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ShootingAI : MonoBehaviour
@@ -16,9 +17,13 @@ public class ShootingAI : MonoBehaviour
 
     public float shootspeed = 1.5f;
     public float timetoshoot = 1.5f;
-    public float deletetimer;
 
-    float originaltime;
+
+    public float range = 20f;
+
+    private int damage = 10;
+
+    public float originaltime;
 
     void Start()
     {
@@ -28,7 +33,6 @@ public class ShootingAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deletetimer += Time.deltaTime;
         if (Detected) 
         {
             enemy.LookAt(Target.transform.position);
@@ -42,10 +46,10 @@ public class ShootingAI : MonoBehaviour
         {
             timetoshoot -= Time.deltaTime;
 
-            if(timetoshoot < 0) 
-            { 
-                ShootPlayer();
+            if(timetoshoot <= 0) 
+            {
                 timetoshoot = originaltime;
+                ShootPlayer();
             }
         }
     }
@@ -58,17 +62,19 @@ public class ShootingAI : MonoBehaviour
             Target = other.gameObject;
         }
     }
-
     public void ShootPlayer()
     {
-        GameObject currentbullet = Instantiate(Projectile, Shootingpoint.position, Shootingpoint.rotation);
-        Rigidbody rig = currentbullet.GetComponent<Rigidbody>();
 
-        rig.AddForce(transform.forward*shootspeed,ForceMode.VelocityChange);
-        
+        RaycastHit hit;
 
-       if(deletetimer <= 5)
-            
-            deletetimer = 0;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+
+            Target target = hit.transform.GetComponent<Target>();
+            PlayerMovement playerhealth = GetComponent<PlayerMovement>();
+
+                playerhealth.TakeDamage(10);
+        }
     }
 }

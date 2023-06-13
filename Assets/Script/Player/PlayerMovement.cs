@@ -30,8 +30,10 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject Panel;
 
-	
-	void Start()
+
+    public ConfigurableJoint L;
+    public ConfigurableJoint R;
+    void Start()
 	{
 		
 		rigidbodyR = GetComponent<Rigidbody>();
@@ -47,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
 	{
         Move();
         Dead();
+    
+
+       
+   
     }
 
     void Dead()
@@ -69,10 +75,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currenthealth -= damage;
-
         healthbar.SetHealth(currenthealth);
     }
 
