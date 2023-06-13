@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 		
 		rigidbodyR = GetComponent<Rigidbody>();
         currenthealth = maxhealth;
-        healthbar.SetMaxHealth(maxhealth);
+        
         Panel.SetActive(false);
         Time.timeScale = 1f;
 

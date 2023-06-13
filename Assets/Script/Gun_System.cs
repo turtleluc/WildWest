@@ -33,25 +33,26 @@ public class Gun_System : MonoBehaviour
 
     void Update()
     {
-
-        if (currentAmmo <= 0)
+        if (Time.timeScale > 0f)
         {
-            if (Input.GetKey(KeyCode.R))
+            if (currentAmmo <= 0)
             {
+                if (Input.GetKey(KeyCode.R))
+                {
 
-                Reload();
+                    Reload();
 
+                }
+                return;
             }
-            return;
-        }
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-            ShootAni();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                ShootAni();
+            }
         }
-
-      
+    
 
     }
 
