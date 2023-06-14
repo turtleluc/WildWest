@@ -1801,8 +1801,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 720765539}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 100
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1810,7 +1810,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2046194542}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2126,6 +2126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48035ddfe03a11c4f85025f8c57311ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Volume: {fileID: 1463763482}
 --- !u!1 &2106913099
 GameObject:
   m_ObjectHideFlags: 0
