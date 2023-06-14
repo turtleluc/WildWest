@@ -12,22 +12,22 @@ public class ShootingAI : MonoBehaviour
     GameObject Target;
     public Transform enemy;
 
-    public GameObject Projectile;
+    public GameObject HealthbarUI;
+
     public Transform Shootingpoint;
 
     public float shootspeed = 1.5f;
     public float timetoshoot = 1.5f;
 
-
     public float range = 20f;
 
-    private int damage = 10;
-
     public float originaltime;
+
 
     void Start()
     {
         originaltime = timetoshoot;
+        
     }
 
     // Update is called once per frame
@@ -37,8 +37,8 @@ public class ShootingAI : MonoBehaviour
         {
             enemy.LookAt(Target.transform.position);
         }
-        
-    
+
+        ShootPlayer();
     }
     private void FixedUpdate()
     {
@@ -64,17 +64,15 @@ public class ShootingAI : MonoBehaviour
     }
     public void ShootPlayer()
     {
-
+        Health playerhealth = GetComponent<Health>();
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
-            Target target = hit.transform.GetComponent<Target>();
-            PlayerMovement playerhealth = GetComponent<PlayerMovement>();
-
-                playerhealth.TakeDamage(10);
+             playerhealth.TakeDamage(10);
         }
     }
+   
 }

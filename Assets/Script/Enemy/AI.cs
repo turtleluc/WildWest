@@ -31,7 +31,7 @@ using UnityEngine.AI;
     {
         if (!walkpointSet)
         {
-            Searchfordest();
+            SearchForDestination();
         }
         if (walkpointSet)
         {
@@ -40,7 +40,7 @@ using UnityEngine.AI;
         if (Vector3.Distance(transform.position, destpoint) < 10) walkpointSet = false;
     }
 
-    void Searchfordest()
+    void SearchForDestination()
     {
         float z = Random.Range(-Walkrange, Walkrange);
         float x = Random.Range(-Walkrange, Walkrange);

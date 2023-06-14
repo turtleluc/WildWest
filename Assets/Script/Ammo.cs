@@ -8,13 +8,12 @@ public class Ammo : MonoBehaviour
 {
     public Slider ammosliderUI;
 
-    public void ammoslider()
+    public void Start()
     {
-        ammosliderUI.value = 6;
-    }
 
+    }
     void Update()
     {
-        
+        ammosliderUI.value = Gun_System.currentAmmo;
     }
 }

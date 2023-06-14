@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
 		
 		rigidbodyR = GetComponent<Rigidbody>();
         currenthealth = maxhealth;
-        healthbar.SetMaxHealth(maxhealth);
         Panel.SetActive(false);
         Time.timeScale = 1f;
 
@@ -49,10 +48,6 @@ public class PlayerMovement : MonoBehaviour
 	{
         Move();
         Dead();
-    
-
-       
-   
     }
 
     void Dead()
@@ -75,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
         currenthealth -= damage;
         healthbar.SetHealth(currenthealth);

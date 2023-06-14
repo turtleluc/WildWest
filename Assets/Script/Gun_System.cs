@@ -25,23 +25,17 @@ public class Gun_System : MonoBehaviour
         Muzzle.Stop();
         Smoke.Stop();
         Splyfus = GetComponent<Animator>();
-        
-
-        currentAmmo = maxAmmo;
-
-        
+       
+        currentAmmo = maxAmmo;   
     }
 
     void Update()
     {
-
         if (currentAmmo <= 0)
         {
             if (Input.GetKey(KeyCode.R))
             {
-
                 Reload();
-
             }
             return;
         }
@@ -51,18 +45,14 @@ public class Gun_System : MonoBehaviour
             Shoot();
             ShootAni();
         }
-
-      
-
     }
-
     void Shoot()
     {
 
         RaycastHit hit;
         if (!this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !this.Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
-            Ammo ammoUI = GetComponent<Ammo>();
+         
             Muzzle.Play();
             Smoke.Play();
 
