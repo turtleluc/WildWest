@@ -47,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
         Move();
-        Dead();
+      /*  Dead();*/
     }
 
-    void Dead()
+    /*void Dead()
     {
         if(currenthealth <= 0)
         {
@@ -58,9 +58,9 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale= 0f;
             Cursor.lockState = CursorLockMode.None;
         }
-    }
+    }*/
 
-    void OnTriggerEnter(Collider collision)
+    /*void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Projectile")
         {
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         currenthealth -= damage;
         healthbar.SetHealth(currenthealth);
     }
-
+*/
 
 
 	void FixedUpdate()

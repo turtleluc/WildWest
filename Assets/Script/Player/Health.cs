@@ -2,32 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Health : MonoBehaviour
 {
     public Slider slider;
 
-    public int health;
+    public GameObject Panel;
+
+    public float health;
     public int maxHealth;
+    public int damage;
 
     private void Start()
     {
         health = maxHealth;
-    }
+        slider.maxValue = maxHealth;
 
-    public void SetMaxHealth(int health)
+    }
+    void Update()
     {
-        slider.maxValue = health;
+        Dead();
         slider.value = health;
     }
 
-    public void SetHealth(int health)
+    public void SetMaxHealth()
     {
-        slider.value = health;
+ 
     }
 
-    public void TakeDamage(int damage)
+    public void SetHealth()
+    {
+
+    }
+
+    public void TakeDamage()
     {
         health -= damage;
+    }
+
+    void Dead()
+    {
+        if (health <= 0)
+        {
+            Panel.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

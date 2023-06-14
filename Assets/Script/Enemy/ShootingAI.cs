@@ -17,7 +17,7 @@ public class ShootingAI : MonoBehaviour
     public Transform Shootingpoint;
 
     public float shootspeed = 1.5f;
-    public float timetoshoot = 1.5f;
+    public float timetoshoot;
 
     public float range = 20f;
 
@@ -38,7 +38,6 @@ public class ShootingAI : MonoBehaviour
             enemy.LookAt(Target.transform.position);
         }
 
-        ShootPlayer();
     }
     private void FixedUpdate()
     {
@@ -64,14 +63,14 @@ public class ShootingAI : MonoBehaviour
     }
     public void ShootPlayer()
     {
-        Health playerhealth = GetComponent<Health>();
+        Health playerhealth = HealthbarUI.GetComponent<Health>();
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
-             playerhealth.TakeDamage(10);
+             playerhealth.TakeDamage();
         }
     }
    
