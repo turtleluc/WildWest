@@ -28,7 +28,7 @@ public class Target : MonoBehaviour
         if(health <= 0f)
         {
             Die();
-            Money.moneyValue += MoneyPlus;
+            Missions.Need_current ++ ;
 
         }
     }

@@ -62,6 +62,7 @@ public class Missions : MonoBehaviour
                 Mission_Text.text = "Go Back To The Office And Select Mission 2";
                 Mission_Needs.text = "";
                 Mission2B.interactable = true;
+                Money.moneyValue =+ 75;
                 
             }
             return;
