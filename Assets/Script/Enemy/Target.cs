@@ -10,9 +10,9 @@ public class Target : MonoBehaviour
 {
     public int MoneyPlus = 10;
 
-    public float health = 50f;
+    public float health = 50;
 
-    private float m_Thrust = 375f;
+    private float m_Thrust = 375;
 
     public GameObject DetectionZone;
 
@@ -22,13 +22,14 @@ public class Target : MonoBehaviour
 
     public ConfigurableJoint L;
     public ConfigurableJoint R;
+    
     public void Takedamage(float amount)
     {
-        health-=amount;
-        if(health <= 0f)
+        health -= amount;
+        if(health <= 0)
         {
             Die();
-            Missions.Need_current ++ ;
+            Missions.Need_current ++;
 
         }
     }
