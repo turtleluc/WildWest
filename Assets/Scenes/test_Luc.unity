@@ -13551,6 +13551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422966874}
   - component: {fileID: 1422966875}
+  - component: {fileID: 1422966876}
   m_Layer: 0
   m_Name: RepeaterArms
   m_TagString: Untagged
@@ -13597,6 +13598,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1422966876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422966873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1cb87f9e2792a47a6aab18ecec9dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  range: 200
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  maxAmmo: 6
+  Splyfus: {fileID: 1422966875}
+  fpscam: {fileID: 1977537578}
+  Muzzle: {fileID: 1477933888}
+  Smoke: {fileID: 220228664}
 --- !u!1 &1424254401
 GameObject:
   m_ObjectHideFlags: 0
