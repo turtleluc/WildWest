@@ -23,7 +23,6 @@ public class Gun_System : MonoBehaviour
     public ParticleSystem Smoke;
 
     
-
     void Start()
     {
         Muzzle.Stop();
@@ -62,12 +61,12 @@ public class Gun_System : MonoBehaviour
     {
 
         RaycastHit hit;
-        if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6") || !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("RepeaterShoot") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("RepeaterReload"))
+        if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
 
-            /*Muzzle.Play();
+            Muzzle.Play();
             Smoke.Play();
-*/
+
             currentAmmo--;
             Debug.Log("Shoot");
 
@@ -92,19 +91,17 @@ public class Gun_System : MonoBehaviour
 
     void ShootAni()
     {
-        if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6") || !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("RepeaterShoot") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("RepeaterReload"))
+        if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
             Splyfus.Play("POW");
-            Splyfus.Play("RepeaterShoot");
         }
     }
 
     void Reload()
     {
-        if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("RepeaterShoot"))
+        if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW"))
         {
             Splyfus.Play("Reload_6");
-            Splyfus.Play("RepeaterReload");
             currentAmmo = maxAmmo;
         }
     }
