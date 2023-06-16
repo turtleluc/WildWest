@@ -58,7 +58,7 @@ public class Target : MonoBehaviour
         DetectionZone.gameObject.SetActive(false);
 
             rb.freezeRotation = false;
-            rb.AddForce(transform.forward * -m_Thrust);
+            rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 1.5f));
             rb.AddForce(transform.up * 300f);
             L.angularXMotion = ConfigurableJointMotion.Free;
             L.angularYMotion = ConfigurableJointMotion.Free;
