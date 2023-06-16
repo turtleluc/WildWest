@@ -38,11 +38,7 @@ public class Gun_System : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
         Debug.DrawRay(transform.position, forward, Color.green);
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-            ShootAni();
-        }
+        Debug.DrawLine(fpscam.transform.position, fpscam.transform.position + (fpscam.transform.forward * range), Color.red);
 
         if (currentAmmo <= 0)
         {
@@ -52,8 +48,13 @@ public class Gun_System : MonoBehaviour
             }
             return;
         }
-        
 
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+            ShootAni();
+        }
        
     }
     void Shoot()
@@ -62,23 +63,28 @@ public class Gun_System : MonoBehaviour
         RaycastHit hit;
         if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
-         
+
             Muzzle.Play();
             Smoke.Play();
 
             currentAmmo--;
             Debug.Log("Shoot");
 
-            if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range,enemyMask)) 
-            {
-              
 
-                Target target =  hit.transform.GetComponent<Target>();
-                if (target != null) 
+
+            if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range, enemyMask))
+            {
+                Target target = hit.transform.GetComponent<Target>();
+                if (target != null)
                 {
                     target.Takedamage(damage);
 
                 }
+            }
+
+            if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit))
+            {
+                Debug.Log("Hit: " + hit.collider.name);
             }
         }
     }
@@ -96,7 +102,7 @@ public class Gun_System : MonoBehaviour
         if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW"))
         {
             Splyfus.Play("Reload_6");
-                currentAmmo = maxAmmo;
+            currentAmmo = maxAmmo;
         }
     }
 }
