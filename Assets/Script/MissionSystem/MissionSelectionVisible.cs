@@ -58,6 +58,13 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
             Missions.Needs = 15;
         }
 
+        if (CurrentMission == 3)
+        {
+            Missions.Mission3 = true;
+            Missions.Need_current = 0;
+            Missions.Needs = 3;
+        }
+
         Debug.Log("ButtonActiveate");
         
     }
@@ -78,8 +85,8 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
     public void Mission3Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "randome text";
-        Misstion_Des.text = "hadsb ldahdka;j d;ajdlakjs ajkdd jsdj aioj kash dh ka hiduhi ah";
+        Misstion_Tit.text = "Lost Kid";
+        Misstion_Des.text = "Talk to the Lost Kids mom and find her kid.";
     }
     public void Mission4Sel()
     {

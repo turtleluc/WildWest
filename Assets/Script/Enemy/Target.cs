@@ -38,7 +38,7 @@ public class Target : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Navmesh =GetComponent<NavMeshAgent>();
 
-        Navmesh.enabled = true;
+        /*Navmesh.enabled = true;*/
 
         rb.freezeRotation = true;
 

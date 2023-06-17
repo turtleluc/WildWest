@@ -29,7 +29,7 @@ public class Missions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public class Missions : MonoBehaviour
             return;
         }
 
-        if (Mission1 == true)
+        if (!Mission2)
         {
             Needs = 9;
             Mission_Text.text = "Kill All Bandits";
@@ -62,16 +62,33 @@ public class Missions : MonoBehaviour
                 Mission_Text.text = "Go Back To The Office And Select Mission 2";
                 Mission_Needs.text = "";
                 Mission2B.interactable = true;
-                Money.moneyValue =+ 75;
-                
+                moneyplus(150);
+
             }
             return;
         }
 
-        if (Mission2 = true)
+        if (!Mission3)
         {
             Mission_Text.text = "Go Catch Piggs";
             Mission_Needs.text = "Piggs Catched " + Need_current + "/" + Needs;
+
+            if (Need_current >= Needs)
+            {
+                Mission_Text.text = "Go Back To The Office And Select Mission 3";
+                Mission_Needs.text = "";
+                Mission3B.interactable = true;
+                moneyplus(75);
+
+            }
+            return;
+
+        }
+
+        if (!Mission4)
+        {
+            Mission_Text.text = "Go Talk To The Mom";
+            Mission_Needs.text = "Stage Of Mission " + Need_current + "/" + Needs;
             return;
         }
 
@@ -81,5 +98,10 @@ public class Missions : MonoBehaviour
     {
         Need_current++;
     }
+
+    void moneyplus(int plus)
+        {
+            Money.moneyValue += plus;
+        }
 }
 

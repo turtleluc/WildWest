@@ -50,7 +50,7 @@ public class Gun_System : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !Time.timeScale.Equals(0))
         {
             Shoot();
             ShootAni();
