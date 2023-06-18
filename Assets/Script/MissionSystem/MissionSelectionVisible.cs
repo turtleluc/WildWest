@@ -54,15 +54,14 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
         if (CurrentMission == 2)
         {
             Missions.Mission2 = true;
-            Missions.Need_current = 0;
-            Missions.Needs = 15;
+            
+            
         }
 
         if (CurrentMission == 3)
         {
             Missions.Mission3 = true;
-            Missions.Need_current = 0;
-            Missions.Needs = 3;
+            
         }
 
         Debug.Log("ButtonActiveate");
@@ -87,6 +86,7 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "Lost Kid";
         Misstion_Des.text = "Talk to the Lost Kids mom and find her kid.";
+        CurrentMission = 3;
     }
     public void Mission4Sel()
     {

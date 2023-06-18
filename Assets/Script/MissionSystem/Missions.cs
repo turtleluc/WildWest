@@ -20,6 +20,8 @@ public class Missions : MonoBehaviour
     static public int Needs = 9;
     static public int Need_current = 0;
 
+    private bool MissionComplete = false;
+
     static public bool Mission1 = false;
     static public bool Mission2 = false;
     static public bool Mission3 = false;
@@ -50,21 +52,36 @@ public class Missions : MonoBehaviour
 
         if (!Mission2)
         {
-            Needs = 9;
+            Needs = 2;
             Mission_Text.text = "Kill All Bandits";
             Mission_Needs.text = "Bandits Killed " + Need_current + "/" + Needs;
 
 
+            if (Need_current >= Needs || MissionComplete)
+            {
+                MissionComplete = true;
 
+                Mission_Text.text = "Go Back To The Office And Select Mission 2";
+                Mission_Needs.text = "";
+                Mission2B.interactable = true;
 
-            if (Need_current >= Needs)
+                if (MissionComplete && Need_current >= Needs)
+                {
+                    moneyplus(150);
+                    Need_current = 0;
+
+                }
+            }
+
+            /*if (Need_current >= Needs)
             {
                 Mission_Text.text = "Go Back To The Office And Select Mission 2";
                 Mission_Needs.text = "";
                 Mission2B.interactable = true;
                 moneyplus(150);
+                Need_current = 0;
 
-            }
+            }*/
             return;
         }
 
@@ -73,13 +90,20 @@ public class Missions : MonoBehaviour
             Mission_Text.text = "Go Catch Piggs";
             Mission_Needs.text = "Piggs Catched " + Need_current + "/" + Needs;
 
-            if (Need_current >= Needs)
+            if (Need_current >= Needs || MissionComplete)
             {
+                MissionComplete = true;
+
                 Mission_Text.text = "Go Back To The Office And Select Mission 3";
                 Mission_Needs.text = "";
                 Mission3B.interactable = true;
-                moneyplus(75);
 
+                if (MissionComplete && Need_current >= Needs)
+                {
+                    moneyplus(75);
+                    Need_current = 0;
+
+                }
             }
             return;
 
