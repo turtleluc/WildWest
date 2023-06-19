@@ -12,7 +12,7 @@ public class GsDoorToInside : MonoBehaviour, IInteracteble
     public void Interact(Interactor interactor)
     {
         Debug.Log("Door");
-        Player.transform.position = new Vector3(-1.55f, 1f, -96f);
+        Player.transform.position = new Vector3(145f, 22f, -322f);
         Player.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 

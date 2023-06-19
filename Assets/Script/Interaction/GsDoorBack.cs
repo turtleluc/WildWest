@@ -12,8 +12,8 @@ public class GsDoorBack : MonoBehaviour, IInteracteble
     public void Interact(Interactor interactor)
     {
         Debug.Log("Door");
-        Player.transform.position = new Vector3(14f, 1.25f, -4.2f);
-        Player.transform.rotation = Quaternion.Euler(0, -90, 0);
+        Player.transform.position = new Vector3(26.30f, 16.50f, -22f);
+        Player.transform.rotation = Quaternion.Euler(0, -95, 0);
     }
 
    
