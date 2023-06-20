@@ -1371,7 +1371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553608827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2046194542}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553608827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,7 +1620,7 @@ GameObject:
   - component: {fileID: 697781748}
   - component: {fileID: 697781747}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: resolutionDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1709,7 +1721,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2046194542}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: SetResolution
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &697781748
 MonoBehaviour:
@@ -1838,7 +1862,7 @@ GameObject:
   - component: {fileID: 790878037}
   - component: {fileID: 790878036}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: GraphicsDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2519,7 +2543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -111, y: -76}
+  m_AnchoredPosition: {x: 61, y: 18}
   m_SizeDelta: {x: 258.1302, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296555591
@@ -2599,7 +2623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301, y: -57}
+  m_AnchoredPosition: {x: 18, y: 15}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308216501
@@ -2747,7 +2771,7 @@ GameObject:
   - component: {fileID: 1463763481}
   - component: {fileID: 1463763482}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: VolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3096,7 +3120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 778, y: -71}
+  m_AnchoredPosition: {x: 436, y: 12}
   m_SizeDelta: {x: 246.7045, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1572979467
@@ -3182,7 +3206,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -35.9375, w: 0}
+  m_margin: {x: 2.43042, y: 0, z: -35.9375, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3531,7 +3555,7 @@ GameObject:
   - component: {fileID: 1886482601}
   - component: {fileID: 1886482602}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: FullscreenToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3605,7 +3629,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2046194542}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: SetFullscreen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1889067560
 GameObject:
@@ -4010,7 +4046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48035ddfe03a11c4f85025f8c57311ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Volume: {fileID: 1463763482}
+  audioMixer: {fileID: 0}
+  resolutionDropdown: {fileID: 0}
 --- !u!1 &2106913099
 GameObject:
   m_ObjectHideFlags: 0
