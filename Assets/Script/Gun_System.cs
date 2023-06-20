@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 public class Gun_System : MonoBehaviour
@@ -11,6 +12,11 @@ public class Gun_System : MonoBehaviour
     public float range = 20f;
 
     public LayerMask enemyMask;
+
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
+    private AudioClip Gunsound;
+    private AudioClip Reloadsound;
 
     public int maxAmmo = 6;
     public static int currentAmmo;
@@ -28,7 +34,9 @@ public class Gun_System : MonoBehaviour
         Muzzle.Stop();
         Smoke.Stop();
         Splyfus = GetComponent<Animator>();
-       
+        Gunsound = GetComponent<AudioClip>();
+        Reloadsound = GetComponent<AudioClip>();
+
         currentAmmo = maxAmmo;   
     }
 
@@ -69,7 +77,7 @@ public class Gun_System : MonoBehaviour
 
             currentAmmo--;
             Debug.Log("Shoot");
-
+          
 
 
             if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range, enemyMask))
@@ -94,6 +102,7 @@ public class Gun_System : MonoBehaviour
         if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW") && !Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
         {
             Splyfus.Play("POW");
+            audioSource1.Play();
         }
     }
 
@@ -102,6 +111,7 @@ public class Gun_System : MonoBehaviour
         if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW"))
         {
             Splyfus.Play("Reload_6");
+            audioSource2.Play();
             currentAmmo = maxAmmo;
         }
     }

@@ -14,7 +14,10 @@ public class Target : MonoBehaviour
 
     private float m_Thrust = 375;
 
-    public GameObject DetectionZone;
+    private AudioSource Deathsound;
+
+    private int maxdeletetime = 3;
+    private float deletetimer = 0;
 
     Rigidbody rb;
 
@@ -29,8 +32,7 @@ public class Target : MonoBehaviour
         if(health <= 0)
         {
             Die();
-            Missions.Need_current ++;
-
+            
         }
     }
     void Start()
@@ -38,7 +40,7 @@ public class Target : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Navmesh =GetComponent<NavMeshAgent>();
 
-        /*Navmesh.enabled = true;*/
+        Deathsound = GetComponent<AudioSource>();
 
         rb.freezeRotation = true;
 
@@ -51,15 +53,19 @@ public class Target : MonoBehaviour
         R.angularZMotion = ConfigurableJointMotion.Locked;
     }
 
+    private void Update()
+    {
+        Debug.Log(deletetimer);
+    }
     void Die()
     {
-        GetComponent<AI>().enabled = false;
-        Navmesh.enabled= false;
-        DetectionZone.gameObject.SetActive(false);
+            GetComponent<AI>().enabled = false;
+            Navmesh.enabled= false;
 
             rb.freezeRotation = false;
             rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 1.5f));
             rb.AddForce(transform.up * 300f);
+
             L.angularXMotion = ConfigurableJointMotion.Free;
             L.angularYMotion = ConfigurableJointMotion.Free;
             L.angularZMotion = ConfigurableJointMotion.Free;
@@ -68,6 +74,19 @@ public class Target : MonoBehaviour
             R.angularYMotion = ConfigurableJointMotion.Free;
             R.angularZMotion = ConfigurableJointMotion.Free;
 
+        Deathsound.Play();
+        Missions.Need_current++;
         
+        DeleteBody();
+    }
+
+    void DeleteBody()
+    {
+        deletetimer = deletetimer + Time.deltaTime;
+        if (deletetimer >= maxdeletetime)
+        {
+            Destroy(gameObject);
+            deletetimer = 0;
+        }
     }
 }
