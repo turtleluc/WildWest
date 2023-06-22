@@ -19,6 +19,9 @@ public class Target : MonoBehaviour
     private int maxdeletetime = 3;
     private float deletetimer = 0;
 
+    public GameObject ArmL;
+    public GameObject ArmR;
+
     Rigidbody rb;
 
     public NavMeshAgent Navmesh;
@@ -40,7 +43,14 @@ public class Target : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Navmesh =GetComponent<NavMeshAgent>();
 
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<BoxCollider>().enabled = true;
+
         Deathsound = GetComponent<AudioSource>();
+        
+        ArmL.GetComponentInChildren<BoxCollider>().enabled = false;
+        ArmR.GetComponentInChildren<BoxCollider>().enabled = false;
+
 
         rb.freezeRotation = true;
 
@@ -61,6 +71,13 @@ public class Target : MonoBehaviour
     {
             GetComponent<AI>().enabled = false;
             Navmesh.enabled= false;
+
+            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<BoxCollider>().enabled = false;
+
+            ArmL.GetComponentInChildren<BoxCollider>().enabled = true;
+            ArmR.GetComponentInChildren<BoxCollider>().enabled = true;
+
 
             rb.freezeRotation = false;
             rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 1.5f));

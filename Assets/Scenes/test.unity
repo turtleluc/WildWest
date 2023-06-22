@@ -193,6 +193,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 896587605214084529, guid: c2bd70bd583404e469b11975256ee493, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 896587605214084534, guid: c2bd70bd583404e469b11975256ee493, type: 3}
       propertyPath: m_Name
       value: Bandit (8)
@@ -6978,6 +6982,10 @@ PrefabInstance:
     - target: {fileID: 896587605214084528, guid: c2bd70bd583404e469b11975256ee493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 896587605214084533, guid: c2bd70bd583404e469b11975256ee493, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 896587605214084534, guid: c2bd70bd583404e469b11975256ee493, type: 3}
       propertyPath: m_Name

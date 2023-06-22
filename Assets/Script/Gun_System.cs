@@ -18,6 +18,7 @@ public class Gun_System : MonoBehaviour
     private AudioClip Gunsound;
     private AudioClip Reloadsound;
 
+
     public int maxAmmo = 6;
     public static int currentAmmo;
 
