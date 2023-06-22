@@ -47,14 +47,18 @@ public class Missions : MonoBehaviour
             Mission_Needs.text = "";
             Mission2B.interactable = false;
 
+
+
             return;
         }
 
+        // Mission 1
         if (!Mission2)
         {
-            Needs = 2;
-            Mission_Text.text = "Kill All Bandits";
-            Mission_Needs.text = "Bandits Killed " + Need_current + "/" + Needs;
+            
+            Needs = 1;
+            Mission_Text.text = "Complete The Tutorial";
+            Mission_Needs.text = "Kill The Bandit. bandits are always the color red";
 
 
             if (Need_current >= Needs || MissionComplete)
@@ -62,35 +66,29 @@ public class Missions : MonoBehaviour
                 MissionComplete = true;
 
                 Mission_Text.text = "Go Back To The Office And Select Mission 2";
-                Mission_Needs.text = "";
+                Mission_Needs.text = "If You Lost Some Health You Can Buy Bandages In The General Store";
                 Mission2B.interactable = true;
-
+            
                 if (MissionComplete && Need_current >= Needs)
                 {
-                    moneyplus(150);
+                    moneyplus(50);
                     Need_current = 0;
 
                 }
             }
 
-            /*if (Need_current >= Needs)
-            {
-                Mission_Text.text = "Go Back To The Office And Select Mission 2";
-                Mission_Needs.text = "";
-                Mission2B.interactable = true;
-                moneyplus(150);
-                Need_current = 0;
-
-            }*/
             return;
         }
 
+        // Mission 2
         if (!Mission3)
         {
-            Mission_Text.text = "Go Catch Piggs";
-            Mission_Needs.text = "Piggs Catched " + Need_current + "/" + Needs;
+            
+            Needs = 7;
+            Mission_Text.text = "Kill All Bandits";
+            Mission_Needs.text = "Bandits Killed " + Need_current + "/" + Needs;
 
-            if (Need_current >= Needs || MissionComplete)
+                if (Need_current >= Needs || MissionComplete)
             {
                 MissionComplete = true;
 
@@ -109,8 +107,10 @@ public class Missions : MonoBehaviour
 
         }
 
+        // Mission 3
         if (!Mission4)
         {
+            
             Mission_Text.text = "Go Talk To The Mom";
             Mission_Needs.text = "Stage Of Mission " + Need_current + "/" + Needs;
             return;
