@@ -62,22 +62,23 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
             Missions.Mission3 = true;
             
         }
-
+        Missions.Need_current = 0;
         Debug.Log("ButtonActiveate");
         
     }
     public void Mission1Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "Ohh no the general store is being robbed. go save the town folk and kill or cature all bandits.";
+        Misstion_Tit.text = "Tutorial";
+        Misstion_Des.text = "You get a very simple mission of killing one bandit. you lern that the bandits are always red and how a weapon shoots";
         CurrentMission = 1;
     }
     public void Mission2Sel()
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "General-Store Robbery";
+        Misstion_Des.text = "Ohh no the general store is being robbed. go save the town folk and kill or cature all bandits.";
+        CurrentMission = 1;
         CurrentMission = 2;
     }
     public void Mission3Sel()
