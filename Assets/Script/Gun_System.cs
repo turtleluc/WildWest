@@ -112,8 +112,9 @@ public class Gun_System : MonoBehaviour
         if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW"))
         {
             Splyfus.Play("Reload_6");
-            audioSource2.Play();
             currentAmmo = maxAmmo;
+            audioSource2.Play();
+            
         }
     }
 }

@@ -16,8 +16,9 @@ public class Target : MonoBehaviour
 
     private AudioSource Deathsound;
 
-    private int maxdeletetime = 3;
+    private int Addeverysecond = 1;
     private float deletetimer = 0;
+
 
     public GameObject ArmL;
     public GameObject ArmR;
@@ -35,7 +36,6 @@ public class Target : MonoBehaviour
         if(health <= 0)
         {
             Die();
-            
         }
     }
     void Start()
@@ -63,12 +63,13 @@ public class Target : MonoBehaviour
         R.angularZMotion = ConfigurableJointMotion.Locked;
     }
 
-    private void Update()
+    void Update()
     {
         Debug.Log(deletetimer);
     }
     void Die()
     {
+           
             GetComponent<AI>().enabled = false;
             Navmesh.enabled= false;
 
@@ -91,16 +92,13 @@ public class Target : MonoBehaviour
             R.angularYMotion = ConfigurableJointMotion.Free;
             R.angularZMotion = ConfigurableJointMotion.Free;
 
+
+
         Deathsound.Play();
         Missions.Need_current++;
-        
-        DeleteBody();
-    }
+        deletetimer += Addeverysecond * Time.deltaTime;
 
-    void DeleteBody()
-    {
-        deletetimer = deletetimer + Time.deltaTime;
-        if (deletetimer >= maxdeletetime)
+        if (deletetimer > 5)
         {
             Destroy(gameObject);
             deletetimer = 0;
