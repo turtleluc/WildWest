@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
 	float jumpForce = 250.0f;
 	bool grounded;
 	public LayerMask groundedMask;
-
+/*
     public int maxhealth = 100;
-    public int currenthealth;
+    public int currenthealth;*/
 
     public Health healthbar;
 
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		
 		rigidbodyR = GetComponent<Rigidbody>();
-        currenthealth = maxhealth;
+/*        currenthealth =  maxhealth;*/
         Panel.SetActive(false);
         Time.timeScale = 1f;
 
@@ -47,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
         Move();
-      /*  Dead();*/
+       /* Dead();*/
     }
 
-    /*void Dead()
+  /*  void Dead()
     {
         if(currenthealth <= 0)
         {
@@ -60,22 +60,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }*/
 
-    /*void OnTriggerEnter(Collider collision)
-    {
-        if(collision.gameObject.tag == "Projectile")
-        {
-            currenthealth -= damage;
-            healthbar.SetHealth(currenthealth);
-            Debug.Log("You got hit");
-        }
-    }
+   
 
-    public void TakeDamage()
+ /*   public void TakeDamage()
     {
         currenthealth -= damage;
-        healthbar.SetHealth(currenthealth);
-    }
-*/
+ *//*       healthbar.SetHealth(currenthealth);*//*
+    }*/
+
 
 
 	void FixedUpdate()

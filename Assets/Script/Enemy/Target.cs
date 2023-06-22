@@ -71,6 +71,7 @@ public class Target : MonoBehaviour
     {
            
             GetComponent<AI>().enabled = false;
+            GetComponent<ShootingAI>().enabled = false;
             Navmesh.enabled= false;
 
             GetComponent<CapsuleCollider>().enabled = true;
@@ -82,7 +83,7 @@ public class Target : MonoBehaviour
 
             rb.freezeRotation = false;
             rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 1.5f));
-            rb.AddForce(transform.up * 300f);
+            rb.AddForce(transform.up * 30f);
 
             L.angularXMotion = ConfigurableJointMotion.Free;
             L.angularYMotion = ConfigurableJointMotion.Free;

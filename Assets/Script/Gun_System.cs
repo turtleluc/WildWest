@@ -37,6 +37,7 @@ public class Gun_System : MonoBehaviour
         Splyfus = GetComponent<Animator>();
         Gunsound = GetComponent<AudioClip>();
         Reloadsound = GetComponent<AudioClip>();
+        
 
         currentAmmo = maxAmmo;   
     }
@@ -48,8 +49,16 @@ public class Gun_System : MonoBehaviour
         Debug.DrawRay(transform.position, forward, Color.green);
 
         Debug.DrawLine(fpscam.transform.position, fpscam.transform.position + (fpscam.transform.forward * range), Color.red);
+        
+        
+        if (Input.GetButtonDown("Fire1") && !Time.timeScale.Equals(0) && currentAmmo > 0)
+        {
+            Shoot();
+            ShootAni();
+        }
 
-        if (currentAmmo <= 0)
+
+        if (currentAmmo < 6)
         {
             if (Input.GetKey(KeyCode.R))
             {
@@ -59,11 +68,7 @@ public class Gun_System : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1") && !Time.timeScale.Equals(0))
-        {
-            Shoot();
-            ShootAni();
-        }
+      
        
     }
     void Shoot()
@@ -112,9 +117,12 @@ public class Gun_System : MonoBehaviour
         if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("POW"))
         {
             Splyfus.Play("Reload_6");
-            currentAmmo = maxAmmo;
             audioSource2.Play();
-            
+
+            if (!Splyfus.GetCurrentAnimatorStateInfo(0).IsName("Reload_6"))
+            {
+                currentAmmo = maxAmmo;
+            }
         }
     }
 }

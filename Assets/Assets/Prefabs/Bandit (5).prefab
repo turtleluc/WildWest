@@ -323,9 +323,9 @@ GameObject:
   - component: {fileID: 896587605214084535}
   - component: {fileID: 4106132549640198743}
   - component: {fileID: 896587605214084533}
+  - component: {fileID: 4370672020789516115}
   - component: {fileID: 896587605214084529}
   - component: {fileID: -5912109786873924661}
-  - component: {fileID: 4370672020789516115}
   m_Layer: 11
   m_Name: Bandit (5)
   m_TagString: Enemy
@@ -347,6 +347,7 @@ Transform:
   m_Children:
   - {fileID: 896587606055632934}
   - {fileID: 283630389524342125}
+  - {fileID: 5888719564242043101}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -481,6 +482,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4370672020789516115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896587605214084534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58031e6216384634392785770d1c8e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 896587605214084528}
+  HealthbarUI: {fileID: 3868803065757832911, guid: 86e6248245febf24faadfb49ca6cf81e, type: 3}
+  Shootingpoint: {fileID: 5888719564242043101}
+  shootspeed: 1.5
+  timetoshoot: 1
+  range: 20
+  originaltime: 0
 --- !u!195 &896587605214084529
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -599,25 +619,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4370672020789516115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896587605214084534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58031e6216384634392785770d1c8e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  HealthbarUI: {fileID: 0}
-  Shootingpoint: {fileID: 0}
-  shootspeed: 1.5
-  timetoshoot: 0
-  range: 20
-  originaltime: 0
 --- !u!1 &896587605315383697
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &896587606307364462
 Transform:
   m_ObjectHideFlags: 0
@@ -929,6 +930,37 @@ Transform:
   m_Father: {fileID: 896587606055632934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6266929626216695375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5888719564242043101}
+  m_Layer: 0
+  m_Name: Shoot point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5888719564242043101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266929626216695375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.77, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 896587605214084528}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8308024517987167997
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283630389524342125}
-  - component: {fileID: 8651011247688039410}
+  - component: {fileID: 667202512865990069}
   m_Layer: 0
   m_Name: Detection zone
   m_TagString: Untagged
@@ -953,7 +985,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8308024517987167997}
-  m_LocalRotation: {x: -0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -961,8 +993,8 @@ Transform:
   m_Father: {fileID: 896587605214084528}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8651011247688039410
-BoxCollider:
+--- !u!135 &667202512865990069
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -972,7 +1004,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &896587604459259629
 PrefabInstance:

@@ -22,8 +22,8 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
-        Dead();
         slider.value = health;
+        Dead();
     }
 
     public void SetMaxHealth()

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class ShootingAI : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class ShootingAI : MonoBehaviour
     public Transform enemy;
 
     public GameObject HealthbarUI;
+    public Volume RedscreenUI;
 
     public Transform Shootingpoint;
 
@@ -33,6 +36,7 @@ public class ShootingAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (gameObject.transform.forward * range), Color.red);
         if (Detected) 
         {
             enemy.LookAt(Target.transform.position);
@@ -61,17 +65,30 @@ public class ShootingAI : MonoBehaviour
             Target = other.gameObject;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Detected = false;
+           
+        }
+    }
+
     public void ShootPlayer()
     {
-        Health playerhealth = HealthbarUI.GetComponent<Health>();
         RaycastHit hit;
+
+        Health playerhealth = HealthbarUI.GetComponent<Health>();
+        Hurteffect HurteffectUI = RedscreenUI.GetComponent<Hurteffect>();
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
              playerhealth.TakeDamage();
+             HurteffectUI.Effect();
+
         }
     }
-   
 }
