@@ -20,7 +20,7 @@ public class Missions : MonoBehaviour
     static public int Needs = 9;
     static public int Need_current = 0;
 
-    private bool MissionComplete = false;
+    static public bool MissionComplete = false;
 
     static public bool Mission1 = false;
     static public bool Mission2 = false;

@@ -63,6 +63,7 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
             
         }
         Missions.Need_current = 0;
+        Missions.MissionComplete = false;
         Debug.Log("ButtonActiveate");
         
     }
