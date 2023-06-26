@@ -82,7 +82,6 @@ public class Gun_System : MonoBehaviour
             Smoke.Play();
 
             currentAmmo--;
-            Debug.Log("Shoot");
           
 
 

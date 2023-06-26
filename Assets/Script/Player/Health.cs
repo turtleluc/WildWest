@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
 
     public GameObject Panel;
 
+    public GameObject RedScreen;
+
     public float health;
     public int maxHealth;
     public int damage;
@@ -18,6 +20,7 @@ public class Health : MonoBehaviour
     {
         health = maxHealth;
         slider.maxValue = maxHealth;
+       
 
     }
     void Update()
@@ -38,6 +41,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage()
     {
+        Hurteffect HurteffectUI = RedScreen.GetComponent<Hurteffect>();
+        HurteffectUI.Effect();
         health -= damage;
     }
 

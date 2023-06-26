@@ -65,7 +65,7 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(deletetimer);
+
     }
     void Die()
     {
@@ -83,7 +83,7 @@ public class Target : MonoBehaviour
 
             rb.freezeRotation = false;
             rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 1.5f));
-            rb.AddForce(transform.up * 30f);
+            rb.AddForce(transform.up * 300f);
 
             L.angularXMotion = ConfigurableJointMotion.Free;
             L.angularYMotion = ConfigurableJointMotion.Free;

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-    public class AI : MonoBehaviour
-    {
+public class AI : MonoBehaviour
+{
     GameObject Player;
 
     NavMeshAgent agent;
+
+    Animator EnemyAIAnimation;
 
     [SerializeField] LayerMask groundlayer, playerlayer;
 
@@ -20,39 +22,64 @@ using UnityEngine.AI;
     {
         agent = GetComponent<NavMeshAgent>();
         Player = GameObject.Find("Player");
+        EnemyAIAnimation = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
         Patrol();
+  /*      AnimationSet();*/
     }
 
     void Patrol()
     {
         if (!walkpointSet)
         {
+            EnemyAIAnimation.Play("Enemyanimation");
             SearchForDestination();
         }
         if (walkpointSet)
         {
+            EnemyAIAnimation.Play("WalkingEnemy");
+
             agent.SetDestination(destpoint);
+
         }
+
+
         if (Vector3.Distance(transform.position, destpoint) < 10) walkpointSet = false;
-    }
+        }
 
-    void SearchForDestination()
-    {
-        float z = Random.Range(-Walkrange, Walkrange);
-        float x = Random.Range(-Walkrange, Walkrange);
-
-        destpoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
-
-        if (Physics.Raycast(destpoint, Vector3.down, groundlayer))
+        void SearchForDestination()
         {
-            walkpointSet= true;
+            float z = Random.Range(-Walkrange, Walkrange);
+            float x = Random.Range(-Walkrange, Walkrange);
+
+            destpoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
+
+            if (Physics.Raycast(destpoint, Vector3.down, groundlayer))
+            {
+                walkpointSet = true;
+            }
+
+        }
+}
+
+       
+/*    }
+    void AnimationSet()
+    {
+        if (agent.acceleration != 0)
+        {
+        
+
+        }
+        else
+        {
+
+            EnemyAIAnimation.Play("Enemyanimation");
         }
     }
-
 }
-    
+    */
 

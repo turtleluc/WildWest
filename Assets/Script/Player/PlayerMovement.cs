@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 
-    private int damage = 10;
+ 
 
     public Animator Splyfus;
     

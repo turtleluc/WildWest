@@ -80,14 +80,13 @@ public class ShootingAI : MonoBehaviour
         RaycastHit hit;
 
         Health playerhealth = HealthbarUI.GetComponent<Health>();
-        Hurteffect HurteffectUI = RedscreenUI.GetComponent<Hurteffect>();
+/*        Hurteffect HurteffectUI = RedscreenUI.GetComponent<Hurteffect>();*/
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
 
              playerhealth.TakeDamage();
-             HurteffectUI.Effect();
+            /* HurteffectUI.Effect();*/
 
         }
     }
