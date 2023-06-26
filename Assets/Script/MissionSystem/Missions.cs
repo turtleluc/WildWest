@@ -116,6 +116,25 @@ public class Missions : MonoBehaviour
             return;
         }
 
+
+        // Mission 4
+        if (!Mission5)
+        {
+
+            Mission_Text.text = "";
+            Mission_Needs.text = "Stage Of Mission " + Need_current + "/" + Needs;
+            return;
+        }
+
+        // Mission 5
+        if (Mission5)
+        {
+
+            Mission_Text.text = "Defeat The Outlaw";
+            Mission_Needs.text = "Stage Of Mission " + Need_current + "/" + Needs;
+            return;
+        }
+
     }
 
     public void ButtonClick()
