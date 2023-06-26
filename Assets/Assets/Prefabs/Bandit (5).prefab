@@ -318,13 +318,13 @@ GameObject:
   - component: {fileID: 896587605214084528}
   - component: {fileID: 896587605214084531}
   - component: {fileID: 896587605214084530}
+  - component: {fileID: 2567762819798401695}
   - component: {fileID: 896587605214084532}
   - component: {fileID: 896587605214084559}
   - component: {fileID: 896587605214084535}
   - component: {fileID: 4106132549640198743}
   - component: {fileID: 896587605214084533}
   - component: {fileID: 4370672020789516115}
-  - component: {fileID: 2567762819798401695}
   - component: {fileID: 896587605214084529}
   - component: {fileID: -5912109786873924661}
   m_Layer: 11
@@ -402,6 +402,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &2567762819798401695
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896587605214084534}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58e6883eb4c6c774986a2f8fe89d8315, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &896587605214084532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896587605214084534}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58031e6216384634392785770d1c8e3b, type: 3}
   m_Name: 
@@ -503,27 +524,6 @@ MonoBehaviour:
   timetoshoot: 1
   range: 20
   originaltime: 0
---- !u!95 &2567762819798401695
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896587605214084534}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 58e6883eb4c6c774986a2f8fe89d8315, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &896587605214084529
 NavMeshAgent:
   m_ObjectHideFlags: 0

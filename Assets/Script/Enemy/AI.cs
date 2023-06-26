@@ -35,25 +35,29 @@ public class AI : MonoBehaviour
     {
         if (!walkpointSet)
         {
-            EnemyAIAnimation.Play("Enemyanimation");
             SearchForDestination();
         }
+
         if (walkpointSet)
         {
-            EnemyAIAnimation.Play("WalkingEnemy");
+            
 
             agent.SetDestination(destpoint);
 
         }
+        EnemyAIAnimation.Play("WalkingEnemy");
 
+        if (Vector3.Distance(transform.position, destpoint) < 10)
+        {
+            walkpointSet = false;
 
-        if (Vector3.Distance(transform.position, destpoint) < 10) walkpointSet = false;
         }
 
         void SearchForDestination()
         {
             float z = Random.Range(-Walkrange, Walkrange);
             float x = Random.Range(-Walkrange, Walkrange);
+            EnemyAIAnimation.Play("Enemyanimation");
 
             destpoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
 
@@ -63,6 +67,7 @@ public class AI : MonoBehaviour
             }
 
         }
+    }
 }
 
        
