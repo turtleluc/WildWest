@@ -28,7 +28,7 @@ public class AI : MonoBehaviour
     void Update()
     {
         Patrol();
-  /*      AnimationSet();*/
+        /*        AnimationSet();*/
     }
 
     void Patrol()
@@ -40,51 +40,43 @@ public class AI : MonoBehaviour
 
         if (walkpointSet)
         {
-            
-
+        /*    EnemyAIAnimation.SetBool("IsWalking", true);*/
             agent.SetDestination(destpoint);
-
         }
-        EnemyAIAnimation.Play("WalkingEnemy");
 
         if (Vector3.Distance(transform.position, destpoint) < 10)
         {
             walkpointSet = false;
 
         }
+    }
+    void SearchForDestination()
+    {
+        float z = Random.Range(-Walkrange, Walkrange);
+        float x = Random.Range(-Walkrange, Walkrange);
 
-        void SearchForDestination()
+        EnemyAIAnimation.SetBool("IsWalking", false);
+
+        destpoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
+
+        if (Physics.Raycast(destpoint, Vector3.down, groundlayer))
         {
-            float z = Random.Range(-Walkrange, Walkrange);
-            float x = Random.Range(-Walkrange, Walkrange);
-            EnemyAIAnimation.Play("Enemyanimation");
-
-            destpoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
-
-            if (Physics.Raycast(destpoint, Vector3.down, groundlayer))
-            {
-                walkpointSet = true;
-            }
-
+            walkpointSet = true;
         }
+
     }
 }
-
-       
-/*    }
-    void AnimationSet()
+   /* void AnimationSet()
     {
         if (agent.acceleration != 0)
         {
-        
-
+            EnemyAIAnimation.Play("WalkingAnimaion");
         }
         else
         {
-
             EnemyAIAnimation.Play("Enemyanimation");
         }
     }
-}
-    */
+}*/
+    
 

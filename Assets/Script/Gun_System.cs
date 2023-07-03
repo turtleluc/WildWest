@@ -65,11 +65,7 @@ public class Gun_System : MonoBehaviour
                 Reload();
             }
             return;
-        }
-
-
-      
-       
+        }  
     }
     void Shoot()
     {

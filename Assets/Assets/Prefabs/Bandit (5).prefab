@@ -325,8 +325,8 @@ GameObject:
   - component: {fileID: 4106132549640198743}
   - component: {fileID: 896587605214084533}
   - component: {fileID: 4370672020789516115}
-  - component: {fileID: 896587605214084529}
   - component: {fileID: -5912109786873924661}
+  - component: {fileID: -9036155661871756685}
   m_Layer: 11
   m_Name: Bandit (5)
   m_TagString: Enemy
@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896587605214084534}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 3.209174, y: 0.9917527, z: -8.403218}
+  m_LocalPosition: {x: 0, y: 0.9917527, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -439,7 +439,7 @@ MonoBehaviour:
   health: 10
   ArmL: {fileID: 896587604905165435}
   ArmR: {fileID: 896587605315383697}
-  Navmesh: {fileID: 896587605214084529}
+  Navmesh: {fileID: -9036155661871756685}
   L: {fileID: 896587604940203572}
   R: {fileID: 896587605400766012}
 --- !u!114 &896587605214084559
@@ -475,7 +475,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!65 &4106132549640198743
 BoxCollider:
@@ -511,41 +511,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896587605214084534}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58031e6216384634392785770d1c8e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 896587605214084528}
-  HealthbarUI: {fileID: 3868803065757832911, guid: 86e6248245febf24faadfb49ca6cf81e, type: 3}
+  HealthbarUI: {fileID: 1693192189111048234, guid: 5af48a17714a27b4682928404e1940d2, type: 3}
   RedscreenUI: {fileID: 0}
   Shootingpoint: {fileID: 5888719564242043101}
   shootspeed: 1.5
   timetoshoot: 1
   range: 20
   originaltime: 0
---- !u!195 &896587605214084529
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896587605214084534}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 2
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!82 &-5912109786873924661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -642,6 +620,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &-9036155661871756685
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896587605214084534}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &896587605315383697
 GameObject:
   m_ObjectHideFlags: 0

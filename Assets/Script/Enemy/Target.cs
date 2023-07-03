@@ -12,7 +12,7 @@ public class Target : MonoBehaviour
 
     public float health = 50;
 
-    private float m_Thrust = 375;
+    private float m_Thrust = 100;
 
     private AudioSource Deathsound;
 
@@ -42,6 +42,7 @@ public class Target : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Navmesh =GetComponent<NavMeshAgent>();
+
 
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<BoxCollider>().enabled = true;
@@ -82,8 +83,10 @@ public class Target : MonoBehaviour
 
 
             rb.freezeRotation = false;
-            rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 1.5f));
+
             rb.AddForce(transform.up * 300f);
+            rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 4f));
+
 
             L.angularXMotion = ConfigurableJointMotion.Free;
             L.angularYMotion = ConfigurableJointMotion.Free;
@@ -99,7 +102,7 @@ public class Target : MonoBehaviour
         Missions.Need_current++;
         deletetimer += Addeverysecond * Time.deltaTime;
 
-        if (deletetimer > 5)
+        if (deletetimer >= 5)
         {
             Destroy(gameObject);
             deletetimer = 0;
