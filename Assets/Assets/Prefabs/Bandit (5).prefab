@@ -436,7 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyPlus: 78
-  health: 10
+  HitText: {fileID: 8050299818642300447, guid: b0386c7daa971774ea139c613738e49c, type: 3}
+  health: 50
   ArmL: {fileID: 896587604905165435}
   ArmR: {fileID: 896587605315383697}
   Navmesh: {fileID: -9036155661871756685}
@@ -520,6 +521,7 @@ MonoBehaviour:
   HealthbarUI: {fileID: 1693192189111048234, guid: 5af48a17714a27b4682928404e1940d2, type: 3}
   RedscreenUI: {fileID: 0}
   Shootingpoint: {fileID: 5888719564242043101}
+  BanditMator: {fileID: 2567762819798401695}
   shootspeed: 1.5
   timetoshoot: 1
   range: 20
@@ -1558,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c813edc68a43c3c4eac537323e1dc0d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1214824004972775095, guid: c813edc68a43c3c4eac537323e1dc0d6, type: 3}
       propertyPath: m_Layer

@@ -19,6 +19,8 @@ public class ShootingAI : MonoBehaviour
 
     public Transform Shootingpoint;
 
+    public Animator BanditMator;
+
     public float shootspeed = 1.5f;
     public float timetoshoot;
 
@@ -48,12 +50,18 @@ public class ShootingAI : MonoBehaviour
         if (Detected)
         {
             timetoshoot -= Time.deltaTime;
+            BanditMator.Play("Shooting");
 
-            if(timetoshoot <= 0) 
+            if (timetoshoot <= 0) 
             {
                 timetoshoot = originaltime;
                 ShootPlayer();
             }
+        }
+
+        else
+        {
+            BanditMator.Play("Enemyanimation");
         }
     }
 

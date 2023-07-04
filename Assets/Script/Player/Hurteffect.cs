@@ -53,6 +53,5 @@ public class Hurteffect : MonoBehaviour
     public void Effect()
     {
         Postproces.weight = 1;
-
     }
 }

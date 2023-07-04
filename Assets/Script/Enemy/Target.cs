@@ -5,10 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Target : MonoBehaviour
 {
     public int MoneyPlus = 10;
+
+    public GameObject HitText; 
 
     public float health = 50;
 
@@ -19,6 +23,7 @@ public class Target : MonoBehaviour
     private int Addeverysecond = 1;
     private float deletetimer = 0;
 
+    public GameObject Gun;
 
     public GameObject ArmL;
     public GameObject ArmR;
@@ -33,10 +38,22 @@ public class Target : MonoBehaviour
     public void Takedamage(float amount)
     {
         health -= amount;
-        if(health <= 0)
+        if (health > 0)
+            if (HitText)
+            {
+                {
+                    ShowTextDamage();
+                }
+            }
+        
+        
+        if (health <= 0)
         {
             Die();
         }
+
+
+
     }
     void Start()
     {
@@ -66,11 +83,18 @@ public class Target : MonoBehaviour
 
     void Update()
     {
+        
+    }
 
+    void ShowTextDamage()
+    {
+        var text = Instantiate (HitText, transform.position, Quaternion.LookRotation(transform.position - HitText.transform.position), transform);
+        text.GetComponent<TextMeshPro>().SetText(health.ToString());
     }
     void Die()
     {
-           
+
+            
             GetComponent<AI>().enabled = false;
             GetComponent<ShootingAI>().enabled = false;
             Navmesh.enabled= false;
