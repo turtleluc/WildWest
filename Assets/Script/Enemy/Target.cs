@@ -88,9 +88,11 @@ public class Target : MonoBehaviour
 
     void ShowTextDamage()
     {
-        var text = Instantiate (HitText, transform.position, Quaternion.LookRotation(transform.position - HitText.transform.position), transform);
+        var text = Instantiate (HitText, transform.position, Quaternion.identity, transform);
         text.GetComponent<TextMeshPro>().SetText(health.ToString());
     }
+
+
     void Die()
     {
 

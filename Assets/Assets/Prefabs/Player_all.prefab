@@ -6186,7 +6186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   Panel: {fileID: 0}
-  RedScreen: {fileID: 0}
+  RedScreen: {fileID: 735095226379340183, guid: 8aa076a511a0f984581dd89219b3e90e, type: 3}
   health: 0
   maxHealth: 100
   damage: 5
