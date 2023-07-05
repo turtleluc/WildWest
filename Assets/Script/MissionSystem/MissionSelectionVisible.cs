@@ -48,19 +48,37 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
         if (CurrentMission == 1)
         {
             Missions.Mission1 = true;
+
         }
 
         if (CurrentMission == 2)
         {
+
             Missions.Mission2 = true;
-            
-            
+
+
+
         }
 
         if (CurrentMission == 3)
         {
+
             Missions.Mission3 = true;
+
+
+        }
+        if (CurrentMission == 4)
+        {
             
+            Missions.Mission4 = true;
+            
+
+        }
+        if (CurrentMission == 5)
+        {
+         
+            Missions.Mission5 = true;
+
         }
         Missions.Need_current = 0;
         Missions.MissionComplete = false;
@@ -78,8 +96,7 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "Ohh no the general store is being robbed. go save the town folk and kill or cature all bandits.";
-        CurrentMission = 1;
+        Misstion_Des.text = "Ohh no the general store is being robbed. go save the town folk and kill all bandits.";
         CurrentMission = 2;
     }
     public void Mission3Sel()
@@ -92,14 +109,14 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
     public void Mission4Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "Gen dpoija djja lj; lbbery";
-        Misstion_Des.text = "Genkskajjd j jj adj jalskj k obbery";
+        Misstion_Tit.text = "Saloon Captured";
+        Misstion_Des.text = "Ohh no the saloon is being captured. go save the town folk and kill all bandits.";
     }
     public void Mission5Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "General-Store ljah ds lkk; lk ;lk a lkjfkjbery";
-        Misstion_Des.text = "General-Stord hab kl d; ;obbery";
+        Misstion_Tit.text = "REVANGE";
+        Misstion_Des.text = "The man who killed your wife has returnd to your town KILL HIM for revange (and the safety of the town folk ofcourse).";
     }
 }
 

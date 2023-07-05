@@ -14,6 +14,7 @@ public class LostKid : MonoBehaviour, IInteracteble
     public GameObject DialogToggle;
     public TMP_Text text;
     private int slide = 0;
+    public static bool dialogEnded = false;
 
     public void Interact(Interactor interactor)
     {
@@ -36,27 +37,27 @@ public class LostKid : MonoBehaviour, IInteracteble
         if (slide == 0) 
         {
             
-            text.text = "Lost kid: Are you the sheriff?";
+            text.text = "The Mother: Are you the sheriff?";
         }
 
         if (slide == 1)
         {
-            text.text = "Sheriff: Yes i am, your mom is very worried about you.";
+            text.text = "Sheriff: Yes i am.";
         }
 
         if(slide == 2)
         {
-            text.text = "Lost kid: Oh i'm sorry, you see i lost my teddy and i was looking for him.";
+            text.text = "The Mother: My son has been kidnapped!!!!";
         }
 
         if (slide == 3)
         {
-            text.text = "Sheriff: Come I will bring you to your mom and i'll find your teddy ok?";
+            text.text = "Sheriff: OH MY CACTUS! Where is he?";
         }
 
         if (slide == 4)
         {
-            text.text = "Lost kid: Oh ok.";
+            text.text = "The Mother: They went past the crashed train. I dont know where they are now.  ";
         }
 
         if (slide == 5)
@@ -65,6 +66,7 @@ public class LostKid : MonoBehaviour, IInteracteble
             slide = 0;
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
+            dialogEnded = true;
         }
 
        
