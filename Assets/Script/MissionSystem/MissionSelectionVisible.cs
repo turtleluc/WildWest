@@ -89,21 +89,21 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "Tutorial";
-        Misstion_Des.text = "You get a very simple mission of killing one bandit. you lern that the bandits are always red and how a weapon shoots";
+        Misstion_Des.text = "You Have a very simple mission: Kill 1 bandit. The bandits are red and they will shoot you if they have the chance.";
         CurrentMission = 1;
     }
     public void Mission2Sel()
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "General-Store Robbery";
-        Misstion_Des.text = "Ohh no the general store is being robbed. go save the town folk and kill all bandits.";
+        Misstion_Des.text = "Oh no, the general store is being robbed. Go save the town folk and kill all bandits.";
         CurrentMission = 2;
     }
     public void Mission3Sel()
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "Lost Kid";
-        Misstion_Des.text = "Talk to the Lost Kids mom and find her kid.";
+        Misstion_Des.text = "Talk to the lost kids mom and find her kid.";
         CurrentMission = 3;
     }
     public void Mission4Sel()
@@ -116,8 +116,8 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
     public void Mission5Sel()
     {
         MissionneedsScreen.active = true;
-        Misstion_Tit.text = "REVANGE";
-        Misstion_Des.text = "The man who killed your wife has returnd to your town KILL HIM for revange (and the safety of the town folk ofcourse).";
+        Misstion_Tit.text = "REVENGE";
+        Misstion_Des.text = "The man who killed your wife has returnd to your town, KILL HIM for revenge (and the safety of the town folk of course).";
         CurrentMission = 5;
     }
 }

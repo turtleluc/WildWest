@@ -38,6 +38,7 @@ public class ShootingAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (gameObject.transform.forward * range), Color.red);
         if (Detected) 
         {
@@ -56,8 +57,12 @@ public class ShootingAI : MonoBehaviour
             {
                 timetoshoot = originaltime;
                 ShootPlayer();
+
             }
+            
         }
+
+       
 
         else
         {
