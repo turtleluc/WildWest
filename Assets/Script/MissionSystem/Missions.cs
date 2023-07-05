@@ -61,7 +61,7 @@ public class Missions : MonoBehaviour
         }
 
         // Mission 1
-        if (!Mission2)
+        if (!Mission2 && Mission1)
         {
             
             Needs = 1;
@@ -89,13 +89,14 @@ public class Missions : MonoBehaviour
         }
 
         // Mission 2
-        if (!Mission3)
+        if (!Mission3 && Mission2)
         {
             
             Needs = 3;
             Mission_Text.text = "Kill All Bandits";
             Mission_Needs.text = "Bandits Killed " + Need_current + "/" + Needs;
             Bandits2.active = true;
+            Bandits1.active = false;
 
             if (Need_current >= Needs || MissionComplete)
             {
@@ -117,12 +118,14 @@ public class Missions : MonoBehaviour
         }
 
         // Mission 3
-        if (!Mission4)
+        if (!Mission4 && Mission3)
         {
             Needs = 4;
             Mission_Text.text = "Go Talk To The Mom";
             Mission_Needs.text = "";
             Bandits3.active = true;
+            Bandits4.active = false;
+
             if (LostKid.dialogEnded)
             {
                 Mission_Text.text = "Search The Kid And Kill The Bandits";
@@ -148,12 +151,13 @@ public class Missions : MonoBehaviour
 
 
         // Mission 4
-        if (!Mission5)
+        if (!Mission5 && Mission4)
         {
             Needs = 3;
             Mission_Text.text = "Kill The Bandits";
             Mission_Needs.text = "Bandits Killed " + Need_current + "/" + Needs;
             Bandits4.active = true;
+            Bandits5.active = false;
 
             if (Need_current >= Needs || MissionComplete)
             {
@@ -176,10 +180,12 @@ public class Missions : MonoBehaviour
         // Mission 5
         if (Mission5)
         {
-
+            Needs = 1;
             Mission_Text.text = "Defeat The Outlaw";
             Mission_Needs.text = "";
             Bandits5.active = true;
+            Bandits4.active = false;
+
             if (Need_current >= Needs || MissionComplete)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

@@ -111,7 +111,7 @@ public class Target : MonoBehaviour
             rb.freezeRotation = false;
 
             rb.AddForce(transform.up * 300f);
-            rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 4f));
+            rb.AddForceAtPosition(transform.forward * -m_Thrust, rb.transform.position + (Vector3.up * 3f));
 
 
             L.angularXMotion = ConfigurableJointMotion.Free;

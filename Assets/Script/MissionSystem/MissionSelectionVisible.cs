@@ -111,12 +111,14 @@ public class MissionSelectionVisible : MonoBehaviour, IInteracteble
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "Saloon Captured";
         Misstion_Des.text = "Ohh no the saloon is being captured. go save the town folk and kill all bandits.";
+        CurrentMission = 4;
     }
     public void Mission5Sel()
     {
         MissionneedsScreen.active = true;
         Misstion_Tit.text = "REVANGE";
         Misstion_Des.text = "The man who killed your wife has returnd to your town KILL HIM for revange (and the safety of the town folk ofcourse).";
+        CurrentMission = 5;
     }
 }
 
