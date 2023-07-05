@@ -47,26 +47,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
         Move();
-       /* Dead();*/
     }
-
-  /*  void Dead()
-    {
-        if(currenthealth <= 0)
-        {
-            Panel.SetActive(true);
-            Time.timeScale= 0f;
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }*/
-
-   
-
- /*   public void TakeDamage()
-    {
-        currenthealth -= damage;
- *//*       healthbar.SetHealth(currenthealth);*//*
-    }*/
 
 
 

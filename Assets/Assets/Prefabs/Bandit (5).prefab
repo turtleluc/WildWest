@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6284265639679194290}
-  HealthbarUI: {fileID: 1693192189111048234, guid: 5af48a17714a27b4682928404e1940d2, type: 3}
+  HealthbarUI: {fileID: 7325953371064794324, guid: 5af48a17714a27b4682928404e1940d2, type: 3}
   RedscreenUI: {fileID: 735095226379340176, guid: 8aa076a511a0f984581dd89219b3e90e, type: 3}
   Shootingpoint: {fileID: 6284265639347395738}
   BanditMator: {fileID: 6284265639679194297}
